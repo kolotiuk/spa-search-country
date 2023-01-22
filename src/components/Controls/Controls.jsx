@@ -1,5 +1,5 @@
 import { CustomSelect } from 'components/CustomSelect/CustomSelect.styled';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Search } from './../Search/Search';
 import { Wrapper } from './../Controls/Controls.styled';
 
