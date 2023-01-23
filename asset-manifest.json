@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/spa-search-country/static/css/main.285b91d3.css",
-    "main.js": "/spa-search-country/static/js/main.ce03c875.js",
+    "main.js": "/spa-search-country/static/js/main.3680d0d6.js",
     "index.html": "/spa-search-country/index.html",
     "main.285b91d3.css.map": "/spa-search-country/static/css/main.285b91d3.css.map",
-    "main.ce03c875.js.map": "/spa-search-country/static/js/main.ce03c875.js.map"
+    "main.3680d0d6.js.map": "/spa-search-country/static/js/main.3680d0d6.js.map"
   },
   "entrypoints": [
     "static/css/main.285b91d3.css",
-    "static/js/main.ce03c875.js"
+    "static/js/main.3680d0d6.js"
   ]
 }
