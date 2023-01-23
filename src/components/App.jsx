@@ -1,48 +1,32 @@
-import { useState, useEffect } from 'react';
-import { Controls } from './Controls/Controls';
+import { Route, Routes } from 'react-router-dom';
 import { Header } from './Header/Header';
 import { Main } from './Main/Main';
+import { Details } from './../pages/Details/Details';
+import { NotFound } from './../pages/NotFound/NotFound';
+import Layout from './Layout/Layout';
+import { useState, useEffect } from 'react';
 import { fetchAllCountries } from './../services/countriesAPI';
-import { List } from './List/List';
-import { Card } from './Card/Card';
 
 export const App = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetchAllCountries().then(setCountries);
+    if (!countries.length) {
+      fetchAllCountries().then(setCountries);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div>
       <Header />
-      <Main>
-        <Controls />
-        <List>
-          {countries.map(el => {
-            const countryInfo = {
-              img: el.flags.png,
-              name: el.name,
-              info: [
-                {
-                  title: 'Population',
-                  description: el.population.toLocaleString(),
-                },
-                {
-                  title: 'Region',
-                  description: el.region,
-                },
-                {
-                  title: 'Capital',
-                  description: el.capital,
-                },
-              ],
-            };
-
-            return <Card key={el.name} {...countryInfo} />;
-          })}
-        </List>
-      </Main>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Main countries={countries} />} />
+          <Route path="/country/:name" element={<Details />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
