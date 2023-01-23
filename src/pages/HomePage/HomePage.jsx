@@ -1,13 +1,32 @@
 import { Controls } from './../../components/Controls/Controls';
 import { List } from './../../components/List/List';
 import { Card } from './../../components/Card/Card';
+import { useState } from 'react';
 
 export const HomePage = ({ countries }) => {
+  const [filtered, setFiltered] = useState(countries);
+
+  const handleSearch = (search, region) => {
+    let data = [...countries];
+
+    if (region) {
+      data = data.filter(el => el.region.includes(region));
+    }
+
+    if (search) {
+      data = data.filter(el =>
+        el.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    setFiltered(data);
+  };
+
   return (
     <div>
-      <Controls />
+      <Controls onSearch={handleSearch} />
       <List>
-        {countries.map(el => {
+        {filtered.map(el => {
           const countryInfo = {
             img: el.flags.png,
             name: el.name,
