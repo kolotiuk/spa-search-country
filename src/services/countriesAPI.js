@@ -12,3 +12,12 @@ export const fetchAllCountries = async () => {
     console.log(error.message);
   }
 };
+
+export const searchByCountry = async name => {
+  try {
+    const { data } = await axios.get(`name/${name}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
