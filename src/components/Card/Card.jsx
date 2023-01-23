@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   CardBody,
   CardList,
@@ -9,9 +9,11 @@ import {
 } from './Card.styled';
 
 export const Card = ({ img, name, info = [], onClick }) => {
+  const location = useLocation();
+
   return (
     <Wrapper onClick={onClick}>
-      <Link to={`/country/${name}`}>
+      <Link to={`/country/${name}`} state={{ from: location.pathname }}>
         <CardImage src={img} alt={name} />
         <CardBody>
           <CardTitle>{name}</CardTitle>

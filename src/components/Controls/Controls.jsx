@@ -19,15 +19,8 @@ export const Controls = ({ onSearch }) => {
     const regionValue = region?.value || '';
 
     onSearch(search, regionValue);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, region]);
-
-  // useEffect(() => {
-  //   const regionValue = region?.value || '';
-  //   onSearch(search, regionValue);
-
-  //   // eslint-disable-next-line
-  // }, [search, region]);
 
   return (
     <Wrapper>
