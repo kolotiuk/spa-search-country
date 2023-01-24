@@ -14,11 +14,6 @@ const options = [
 export const Controls = ({ onSearch }) => {
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('');
-  // const [searchParams, setSearchParams] = useSearchParams();
-
-  // const changeFilter = value => {
-  //   setSearchParams({ filter: value });
-  // };
 
   useEffect(() => {
     const regionValue = region?.value || '';

@@ -7,7 +7,9 @@ export const NextCountry = ({ borders }) => {
   const location = useLocation();
 
   useEffect(() => {
-    filterByCode(borders).then(data => setNeighbors(data));
+    if (borders.length) {
+      filterByCode(borders).then(data => setNeighbors(data));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

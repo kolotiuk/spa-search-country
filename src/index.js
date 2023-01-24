@@ -5,9 +5,9 @@ import { App } from 'components/App';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-    <BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter basename="/spa-search-country">
       <App />
     </BrowserRouter>
-  // </React.StrictMode>
+  </React.StrictMode>
 );
