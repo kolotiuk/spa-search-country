@@ -1,8 +1,9 @@
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { useState, useEffect } from 'react';
 import { searchByCountry } from 'services/countriesAPI';
 import { StyledLink } from './../../components/Button/Button.styled';
+import { Info } from './../../components/Info/Info';
 
 export const Details = () => {
   const { name } = useParams();
@@ -15,10 +16,12 @@ export const Details = () => {
 
   return (
     <div>
-      <StyledLink to={location.state?.from}>
+      <StyledLink to={location.state?.from ?? '/'}>
         <IoArrowBack /> Back
       </StyledLink>
-      Details {name}
+      {country && (
+        <Info country={country} state={{ from: location.pathname }} />
+      )}
     </div>
   );
 };

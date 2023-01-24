@@ -40,3 +40,8 @@ body {
   font-weight: var(--fw-light);
   background-color: var(--colors-bg);
 }
+
+ul,
+li {
+  list-style: none;
+}

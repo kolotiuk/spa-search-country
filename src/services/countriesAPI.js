@@ -21,3 +21,12 @@ export const searchByCountry = async name => {
     console.log(error.message);
   }
 };
+
+export const filterByCode = async codes => {
+  try {
+    const { data } = await axios.get(`alpha?codes=${codes}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

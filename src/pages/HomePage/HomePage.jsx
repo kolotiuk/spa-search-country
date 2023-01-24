@@ -1,10 +1,15 @@
 import { Controls } from './../../components/Controls/Controls';
 import { List } from './../../components/List/List';
 import { Card } from './../../components/Card/Card';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const HomePage = ({ countries }) => {
   const [filtered, setFiltered] = useState(countries);
+
+  useEffect(() => {
+    handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countries]);
 
   const handleSearch = (search, region) => {
     let data = [...countries];
